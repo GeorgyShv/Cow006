@@ -1,5 +1,7 @@
 from card import Card
 
+from card import Card
+
 
 def test_create():
     card = Card(25)
@@ -17,8 +19,7 @@ def test_create():
 
 def check_one_score(num, expected_score):
     card = Card(num)
-    print(repr(card))
-    assert repr(card) == f'{num}({expected_score})'
+    assert repr(card) == f'{num}({expected_score})', f'Bad score {card.score}, expect {expected_score} '
 
 
 def test_score():
@@ -31,3 +32,21 @@ def test_score():
     check_one_score(15, 2)
     check_one_score(81, 1)
     check_one_score(66, 5)
+
+
+def test_eq():
+    card1 = Card(25)
+    card2 = Card(15)
+    assert (card1 != card2)
+
+    card3 = Card(25)
+    assert (card1 == card3)
+
+
+def test_lt():
+    card1 = Card(17)
+    card2 = Card(20)
+    assert (card1 < card2)
+
+    card3 = Card(100)
+    assert (card2 < card3)

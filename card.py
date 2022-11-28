@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 class Card:
     """
     Ранги (очки) коровы:
@@ -7,6 +10,8 @@ class Card:
     7, карта 55
     1 остальные
     """
+    MAX_NUMBER = 104
+    NUMBERS = tuple(range(1, MAX_NUMBER + 1))
 
     def __init__(self, num: int):
         self.num = num
@@ -43,5 +48,20 @@ class Card:
         return str(self.num)
 
     # сравнивает 2 карты по номиналу
+    def __eq__(self, other):
+        # self == other
+        return self.num == other.num
+
+    def __lt__(self, other):
+        # self < other
+        return self.num < other.num
+
+    def __hash__(self):
+        """Чтобы карта могла быть ключом в словаре"""
+        return self.num
+
+    @staticmethod
+    def all_cards() -> list[Card]:
+        return [Card(num) for num in Card.NUMBERS]
 
 # класс закончился
