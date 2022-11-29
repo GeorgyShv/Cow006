@@ -1,5 +1,8 @@
+from card import Card
 class Table:
     def __init__(self):
+        self.num = Card.__hash__()
+        self.deck =
         pass
 
     @staticmethod
