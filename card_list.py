@@ -27,6 +27,12 @@ class CardList:
     def __repr__(self) -> str:
         return ' '.join([str(card) for card in self.cards])
 
+    def __eq__(self, other):
+        for i, card in enumerate(self.cards):
+            if card != other[i]:
+                return False
+        return True
+
     @staticmethod
     def load(cards_int: list(int)) -> list[Card]:
         cards = []
