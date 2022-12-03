@@ -17,6 +17,23 @@ def test_create():
     # assert str(card_list) == '[1(0), 34(0), 25(0)]'
 
 
+from card import Card
+
+
+def test_create():
+    card = Card(25)
+    print(card)  # str(card) --> card.__str__
+    print(str(card))  # repr(card) --> card.__repr__
+
+    assert str(Card(25)) == '25'
+    print(str(card))
+    assert str(card) == '25'
+
+    # card_list = [Card(1), Card(34), Card(25)]
+    # print(card_list)
+    # assert str(card_list) == '[1(0), 34(0), 25(0)]'
+
+
 def check_one_score(num, expected_score):
     card = Card(num)
     assert repr(card) == f'{num}({expected_score})', f'Bad score {card.score}, expect {expected_score} '

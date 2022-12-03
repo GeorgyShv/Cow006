@@ -17,7 +17,6 @@ class Card:
         self.num = num
         self.score = Card.__calc_score(num)
 
-    @staticmethod
     def __calc_score(num):
         if num == 55:
             score = 7
