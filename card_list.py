@@ -1,8 +1,8 @@
 from __future__ import annotations
 from card import Card
 
-cl = [Card(5), Card(101), Card(43)]
 
+# cl = [Card(5), Card(101), Card(43)]
 
 class CardList:
     def __init__(self, cards: list[Card]):

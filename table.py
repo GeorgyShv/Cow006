@@ -35,7 +35,8 @@ class Table:
         ''' Вывод стола в текстовом формате '''
         #  '-'.join(map(str, b))
         # s = f'{self.rows[0]}\n{self.rows[1]}\n{self.rows[2]}\n{self.rows[3]}'
-        strrows = [f'{i}: {self.rows[i]}' for i in range(4)]
+        # strrows = [f'{i}: {self.rows[i]}' for i in range(4)]
+        strrows = [f'{i}: {row}' for i, row in enumerate(self.rows)]
         s = '\n'.join(strrows)
         return s
 
@@ -60,3 +61,8 @@ class Table:
             if row == maxrow:
                 return i
         # return None
+
+    def fire_row(self, irow: int) -> int:
+        """ Удаляет карты из рядa irow, возвращает количество очков"""
+
+        return self.rows[irow].cut()  # заглушка, пока всегда возвращаем 0

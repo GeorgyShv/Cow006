@@ -28,10 +28,15 @@ class Row(CardList):
 
     def cut(self) -> int:
         """ Убирает из ряда все карты. Возвращает количество очков на убранных картах"""
-        sc = 0
-        cards = self.draw(self.__len__())
+        self.score = self.score()
+        self.draw(self.__len__())
+        return self.score
 
-        for card in cards:
+    def score(self) -> int:
+        """ Считает суммарные очки для всех карт ряда."""
+        sc = 0
+        # cards = self.cards
+        for card in self.cards:
             sc += card.score
         return sc
 
